@@ -1,0 +1,8 @@
+[requires]
+opencv/4.5.5
+#aws-sdk-cpp/1.9.234
+#openssl/1.1.1n
+
+[generators]
+CMakeDeps
+CMakeToolchain
