@@ -33,11 +33,9 @@ int main( void ){
 
   /// Windows names
   char atom_window[] = "Drawing 1: Atom";
-  char rook_window[] = "Drawing 2: Rook";
 
   /// Create black empty images
   Mat atom_image = Mat::zeros( w, w, CV_8UC3 );
-  Mat rook_image = Mat::zeros( w, w, CV_8UC3 );
 
   /// 1. Draw a simple atom:
   /// -----------------------
@@ -50,9 +48,12 @@ int main( void ){
 
   /// 1.b. Creating circles
   MyFilledCircle( atom_image, Point( w/2, w/2) );
+  imwrite("atom_image.jpg", atom_image);
 
   /// 2. Draw a rook
   /// ------------------
+  char rook_window[] = "Drawing 2: Rook";
+  Mat rook_image = Mat::zeros( w, w, CV_8UC3 );
 
   /// 2.a. Create a convex polygon
   MyPolygon( rook_image );
@@ -70,10 +71,9 @@ int main( void ){
   MyLine( rook_image, Point( w/4, 7*w/8 ), Point( w/4, w ) );
   MyLine( rook_image, Point( w/2, 7*w/8 ), Point( w/2, w ) );
   MyLine( rook_image, Point( 3*w/4, 7*w/8 ), Point( 3*w/4, w ) );
-  TestSFM();
-  imwrite("atom_image.jpg", atom_image);
   imwrite("rook_image.jpg", rook_image);
 
+  TestSFM();
   return(0);
 }
 
